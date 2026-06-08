@@ -71,7 +71,22 @@ button{
 <p>✓ Modo Vida ativado</p>
 
 <h2>STATUS: ONLINE ❤️</h2>
+<div class="card">
 
+<h2>🔐 LOGIN</h2>
+
+<p>Digite a palavra secreta:</p>
+
+<input id="senha"
+style="padding:10px;border-radius:8px;border:none;">
+
+<button onclick="login()">
+Entrar
+</button>
+
+<p id="resultado"></p>
+
+</div>
 </div>
 
 <div class="card">
@@ -111,8 +126,18 @@ button{
 </div>
 
 <div class="card">
-
 <h2>📜 TIMELINE</h2>
+    <div class="card">
+
+<h2>❤️ TESTE DE COMPATIBILIDADE</h2>
+
+<button onclick="compatibilidade()">
+Verificar
+</button>
+
+<p id="comp"></p>
+
+</div>
 
 <p><b>18/12/2025</b><br>
 Você veio me ver pela primeira vez.</p>
@@ -181,7 +206,17 @@ Com todo o meu amor,
 </p>
 
 </div>
+<div class="card">
 
+<h2>📁 Arquivo Secreto</h2>
+
+<button onclick="motivos()">
+Abrir
+</button>
+
+<p id="motivos"></p>
+
+</div>
 <div class="card">
 
 <h2>🔍 STATUS DO CORAÇÃO</h2>
@@ -245,8 +280,65 @@ const dias = Math.floor(diff/(1000*60*60*24));
 
 document.getElementById("dias").innerHTML =
 "❤️ Dias juntos: " + dias;
+function login(){
 
-function mostrarFinal(){
+let senha =
+document.getElementById("senha").value
+.toLowerCase();
+
+if(senha === "vida"){
+
+document.getElementById("resultado")
+.innerHTML =
+"❤️ Usuário reconhecido. Bem-vindo, Alisson.";
+
+}else{
+
+document.getElementById("resultado")
+.innerHTML =
+"❌ Acesso negado.";
+
+}
+
+}
+function compatibilidade(){
+
+let porcentagem = 0;
+
+let intervalo = setInterval(function(){
+
+porcentagem += 10;
+
+document.getElementById("comp")
+.innerHTML =
+porcentagem + "%";
+
+if(porcentagem >= 100){
+
+clearInterval(intervalo);
+
+document.getElementById("comp")
+.innerHTML =
+"❤️ 100% - Compatibilidade perfeita encontrada.";
+
+}
+
+},200);
+function motivos(){
+
+document.getElementById("motivos")
+.innerHTML =
+
+`❤️ Seu sorriso<br>
+❤️ Seu abraço<br>
+❤️ Seu jeito carinhoso<br>
+❤️ Porque você me faz rir<br>
+❤️ Porque você apareceu quando eu mais precisava<br>
+❤️ Porque você é minha vida`;
+
+}
+}
+    function mostrarFinal(){
 document.getElementById("final")
 .classList.remove("hidden");
 }
